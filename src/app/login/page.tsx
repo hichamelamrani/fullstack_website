@@ -24,9 +24,7 @@ function page() {
             >
               Signup
             </button>
-            <Link href="/signup">
-              You don't have account? <span className="font-bold">Signup</span>
-            </Link>
+            
           </div>
         </form>
       </div>
