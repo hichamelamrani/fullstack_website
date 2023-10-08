@@ -38,8 +38,12 @@ function Login() {
               className="font-bold bg-blue-500 text-white p-2 rounded-sm"
               type="submit"
             >
-              Signup
+              Login
             </button>
+            <div className="flex items-center justify-between gap-2">
+              <p>You don't have account?</p>
+              <Link className="font-bold text" href="signup">Signup</Link>
+            </div>
           </div>
         </form>
       </div>
