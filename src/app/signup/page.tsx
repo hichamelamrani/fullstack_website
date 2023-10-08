@@ -1,17 +1,28 @@
 "use client";
 import React from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import axios from "axios";
+import { toast } from "react-hot-toast";
 
 export default function Signup() {
+  const router = useRouter();
   const [user, setUser] = React.useState({
     email: "",
     password: "",
     username: "",
   });
 
-  const handelSingup = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log(user);
+  const handelSingup = async () => {
+    try {
+      const response = await axios.post("/api/users/signup", user);
+      console.log("Signup successflly", response.data);
+      router.push("/login");
+    } catch (error: any) {
+      console.log("Signup Filed", error);
+
+      toast.error(error.message);
+    }
   };
   return (
     <div className="m-8 flex items-center justify-center">

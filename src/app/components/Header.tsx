@@ -14,6 +14,9 @@ export default function Header() {
           <li className="text-xl">
             <Link href="/signup">Signup</Link>
           </li>
+          <li className="text-xl">
+            <Link href="/profile">Profile</Link>
+          </li>
         </ul>
       </nav>
     </header>
