@@ -16,13 +16,16 @@ function page() {
             className="p-3 rounded-sm"
             type="text"
             placeholder="Username"
-            
+            value={user.username}
+            onChange={(e) => setuser({ ...user, username: e.target.value })}
           />
 
           <input
             className="p-3 rounded-sm"
             type="password"
             placeholder="Password"
+            value={user.password}
+            onChange={(e) => setuser({ ...user, password: e.target.value })}
           />
           <div className="mt-4 flex items-center justify-between gap-4">
             <button
