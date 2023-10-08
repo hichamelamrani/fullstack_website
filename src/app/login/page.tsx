@@ -3,7 +3,7 @@ import Link from "next/link";
 import React from "react";
 
 function page() {
-  const [user, setuser] = React.useState({
+  const [user, setUser] = React.useState({
     username: "",
     password: "",
   });
@@ -17,7 +17,7 @@ function page() {
             type="text"
             placeholder="Username"
             value={user.username}
-            onChange={(e) => setuser({ ...user, username: e.target.value })}
+            onChange={(e) => setUser({ ...user, username: e.target.value })}
           />
 
           <input
@@ -25,7 +25,7 @@ function page() {
             type="password"
             placeholder="Password"
             value={user.password}
-            onChange={(e) => setuser({ ...user, password: e.target.value })}
+            onChange={(e) => setUser({ ...user, password: e.target.value })}
           />
           <div className="mt-4 flex items-center justify-between gap-4">
             <button
