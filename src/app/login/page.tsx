@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import React from "react";
 
@@ -15,6 +16,7 @@ function page() {
             className="p-3 rounded-sm"
             type="text"
             placeholder="Username"
+            
           />
 
           <input
