@@ -1,9 +1,9 @@
 "use client";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 
 function page() {
-  const [user, setUser] = React.useState({
+  const [user, setUser] = useState({
     username: "",
     password: "",
   });
