@@ -42,7 +42,6 @@ function Login() {
             </button>
             <div className="flex items-center justify-between gap-2">
               <p>You don't have account?</p>
-              <Link className="font-bold text" href="signup">Signup</Link>
             </div>
           </div>
         </form>
