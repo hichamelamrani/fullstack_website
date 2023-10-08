@@ -1,3 +1,3 @@
 export default function Home() {
-  return <main className="">Home Pahe</main>;
+  return <main>Home Pahe</main>;
 }
