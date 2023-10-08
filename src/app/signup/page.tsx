@@ -9,7 +9,7 @@ export default function Signup() {
     username: "",
   });
 
-  const handelSubmit = (e: React.FormEvent) => {
+  const handelSingup = (e: React.FormEvent) => {
     e.preventDefault();
     console.log(user);
   };
@@ -19,7 +19,7 @@ export default function Signup() {
         <h1 className="w-6/12 pb-2 text-2xl border border-b-gray-300">
           Signup
         </h1>
-        <form className="mt-6 flex flex-col gap-4" onSubmit={handelSubmit}>
+        <form className="mt-6 flex flex-col gap-4" onSubmit={handelSingup}>
           <input
             className="p-3 rounded-sm"
             type="text"

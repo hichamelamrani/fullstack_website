@@ -8,7 +8,7 @@ export default function Login() {
     password: "",
   });
 
-  const handelSubmit = (e: React.FormEvent) => {
+  const handelLogin = (e: React.FormEvent) => {
     e.preventDefault();
     console.log(user);
   };
@@ -16,7 +16,7 @@ export default function Login() {
     <div className="m-8 flex items-center justify-center">
       <div className="w-fite p-6 rounded-sm shadow-sm bg-blue-100">
         <h1 className="w-6/12 pb-2 text-2xl border border-b-gray-300">Login</h1>
-        <form className="mt-6 flex flex-col gap-4" onSubmit={handelSubmit}>
+        <form className="mt-6 flex flex-col gap-4" onSubmit={handelLogin}>
           <input
             className="p-3 rounded-sm"
             type="text"
