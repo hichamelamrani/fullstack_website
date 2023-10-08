@@ -2,7 +2,7 @@
 import Link from "next/link";
 import React, { useState } from "react";
 
-function page() {
+function Login() {
   const [user, setUser] = useState({
     username: "",
     password: "",
@@ -41,4 +41,4 @@ function page() {
   );
 }
 
-export default page;
+export default Login;
