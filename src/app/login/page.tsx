@@ -1,12 +1,7 @@
 "use client";
 import Link from "next/link";
-import React, { useState } from "react";
 
 function page() {
-  const [user, setUser] = useState({
-    username: "",
-    password: "",
-  });
   return (
     <div className="m-8 flex items-center justify-center">
       <div className="w-fite p-6 rounded-sm shadow-sm bg-blue-100">
@@ -16,16 +11,11 @@ function page() {
             className="p-3 rounded-sm"
             type="text"
             placeholder="Username"
-            value={user.username}
-            onChange={(e) => setUser({ ...user, username: e.target.value })}
           />
-
           <input
             className="p-3 rounded-sm"
             type="password"
             placeholder="Password"
-            value={user.password}
-            onChange={(e) => setUser({ ...user, password: e.target.value })}
           />
           <div className="mt-4 flex items-center justify-between gap-4">
             <button
