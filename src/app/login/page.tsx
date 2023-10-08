@@ -7,11 +7,17 @@ function Login() {
     username: "",
     password: "",
   });
+
+  const handelLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log(user);
+  };
+
   return (
     <div className="m-8 flex items-center justify-center">
       <div className="w-fite p-6 rounded-sm shadow-sm bg-blue-100">
         <h1 className="w-6/12 pb-2 text-2xl border border-b-gray-300">Login</h1>
-        <form className="mt-6 flex flex-col gap-4">
+        <form className="mt-6 flex flex-col gap-4" onSubmit={handelLogin}>
           <input
             className="p-3 rounded-sm"
             type="text"
