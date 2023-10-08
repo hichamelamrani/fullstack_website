@@ -1,70 +1,85 @@
 "use client";
-import React from "react";
 import Link from "next/link";
+import React, { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 
-export default function Signup() {
+export default function SignupPage() {
   const router = useRouter();
   const [user, setUser] = React.useState({
     email: "",
     password: "",
     username: "",
   });
+  const [buttonDisabled, setButtonDisabled] = React.useState(false);
+  const [loading, setLoading] = React.useState(false);
 
-  const handelSingup = async () => {
+  const onSignup = async () => {
     try {
+      setLoading(true);
       const response = await axios.post("/api/users/signup", user);
-      console.log("Signup successflly", response.data);
+      console.log("Signup success", response.data);
       router.push("/login");
     } catch (error: any) {
-      console.log("Signup Filed", error);
+      console.log("Signup failed", error.message);
 
       toast.error(error.message);
+    } finally {
+      setLoading(false);
     }
   };
+
+  useEffect(() => {
+    if (
+      user.email.length > 0 &&
+      user.password.length > 0 &&
+      user.username.length > 0
+    ) {
+      setButtonDisabled(false);
+    } else {
+      setButtonDisabled(true);
+    }
+  }, [user]);
+
   return (
-    <div className="m-8 flex items-center justify-center">
-      <div className="w-fite p-6 rounded-sm shadow-sm bg-blue-100">
-        <h1 className="w-6/12 pb-2 text-2xl border border-b-gray-300">
-          Signup
-        </h1>
-        <form className="mt-6 flex flex-col gap-4" onSubmit={handelSingup}>
-          <input
-            className="p-3 rounded-sm"
-            type="text"
-            placeholder="Username"
-            value={user.username}
-            onChange={(e) => setUser({ ...user, username: e.target.value })}
-          />
-          <input
-            className="p-3 rounded-sm"
-            type="text"
-            placeholder="Email"
-            value={user.email}
-            onChange={(e) => setUser({ ...user, email: e.target.value })}
-          />
-          <input
-            className="p-3 rounded-sm"
-            type="password"
-            placeholder="Password"
-            value={user.password}
-            onChange={(e) => setUser({ ...user, password: e.target.value })}
-          />
-          <div className="mt-4 flex items-center justify-between gap-4">
-            <button
-              className="font-bold bg-blue-500 text-white p-2 rounded-sm"
-              type="submit"
-            >
-              Signup
-            </button>
-            <Link href="/login">
-              Already have an account? <span className="font-bold">Login</span>
-            </Link>
-          </div>
-        </form>
-      </div>
+    <div className="flex flex-col items-center justify-center min-h-screen py-2">
+      <h1>{loading ? "Processing" : "Signup"}</h1>
+      <hr />
+      <label htmlFor="username">username</label>
+      <input
+        className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600 text-black"
+        id="username"
+        type="text"
+        value={user.username}
+        onChange={(e) => setUser({ ...user, username: e.target.value })}
+        placeholder="username"
+      />
+      <label htmlFor="email">email</label>
+      <input
+        className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600 text-black"
+        id="email"
+        type="text"
+        value={user.email}
+        onChange={(e) => setUser({ ...user, email: e.target.value })}
+        placeholder="email"
+      />
+      <label htmlFor="password">password</label>
+      <input
+        className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600 text-black"
+        id="password"
+        type="password"
+        value={user.password}
+        onChange={(e) => setUser({ ...user, password: e.target.value })}
+        placeholder="password"
+      />
+      <button
+        onClick={onSignup}
+        className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600"
+      >
+        {buttonDisabled ? "No signup" : "Signup"}
+      </button>
+      <Link href="/login">Visit login page</Link>
     </div>
   );
 }
