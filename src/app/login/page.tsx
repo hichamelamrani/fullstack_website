@@ -40,7 +40,7 @@ function Login() {
             >
               Login
             </button>
-            <Link href="/sginup">
+            <Link href="/signup">
               Do you have account? <span className="font-bold">Signup</span>
             </Link>
           </div>
