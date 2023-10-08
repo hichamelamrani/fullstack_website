@@ -39,8 +39,9 @@ export default function Login() {
             >
               Login
             </button>
-            <Link href="/signup">
-              You don't have account? <span className="font-bold">Signup</span>
+            You don't have account?
+            <Link className="font-bold" href="/signup">
+              Signup
             </Link>
           </div>
         </form>
